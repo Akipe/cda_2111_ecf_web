@@ -4,7 +4,11 @@
   "description": "ECF backend CDA2111",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc",
+    "start": "node ./convert_js/app.js",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q ./convert_js/app.js\"",
+    "final": "node ./convert_js/app.js"
   },
   "author": "",
   "license": "ISC",
