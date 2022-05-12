@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste de pockémons de Paul</title>
+    <script src="https://unpkg.com/es-module-shims@1/dist/es-module-shims.js" defer></script>
+    <script type="importmap" defer>
+        {
+          "imports": {
+            "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+          }
+        }
+      </script>
+    <script src="./app.js" type="module" defer></script>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>La liste de pokémons de Paul</h1>
+            <menu>
+                <form class="form_stool" action="" @submit.prevent>
+                    <fieldset class="menu_stool">
+                        <legend class="stool">Filtrer</legend>
+
+                        <label class="stool" for="name">Par nom :</label>
+                        <input class="stool" type="text" name="name" id="name" v-model="name">
+
+                        <label class="stool">Par type : </label>
+
+                        <label class="stool" for="type_water">Eau</label>
+                        <input class="stool" type="checkbox" name="type" id="type_water" value="water" v-model="types.water">
+                        <label class="stool" for="type_fire">Feux</label>
+                        <input class="stool" type="checkbox" name="type" id="type_fire" value="fire" v-model="types.fire">
+                        <label class="stool" for="type_plant">Plante</label>
+                        <input class="stool" type="checkbox" name="type" id="type_plant" value="plant" v-model="types.plant">
+
+                        <button class="stool_sort_alpha"  @click="this.executeSortByAlph">Trier par {{ this.sortAlphaOrIdText }}</button>
+                    </fieldset>
+                </form>
+            </menu>
+        </header>
+        <main>
+            <article
+                :class="`pinfo pinfo_${pokemon.types[0].toLowerCase()}`"
+                @click="this.removePokemon(pokemon.id)"
+                v-for="pokemon in this.getPokemons"
+                :key="pokemon.id"
+            >
+                <h2>N°{{ pokemon.id }} : {{ pokemon.name }}</h2>
+                <p>Types :</p>
+                <ul>
+                    <li v-for="type in pokemon.types">{{ type }}</li>
+                </ul>
+            </article>
+        </main>
+    </div>
+</body>
+</html>

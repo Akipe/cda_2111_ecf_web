@@ -1,0 +1,76 @@
+body {
+    background-color: black;
+    color: white
+}
+
+main {
+    display: flex;
+
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center
+}
+
+/* header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+} */
+
+h1 {
+    text-align: center;
+}
+
+menu {
+    padding: 0;
+    
+}
+
+.form_stool {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu_stool {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    padding-bottom: 30px;
+    width: 60%;
+    max-width: 800px;
+}
+
+
+.pinfo {
+    padding: 15px;
+
+    background-color: aqua;
+    color: black;
+
+    border: 1px outset white;
+}
+
+.pinfo:hover {
+    background-color: black;
+    color: white;
+
+    border: 1px outset white;
+}
+
+.pinfo_plante { background-color: lightgreen;}
+.pinfo_feu { background-color: lightcoral;}
+.pinfo_eau { background-color: lightblue;}
+.pinfo_electrique { background-color: lightyellow;}
+.pinfo_normal  { background-color: whitesmoke;}
+.pinfo_sol { background-color: bisque;}
+.pinfo_combat  { background-color:  lightpink;}
+.pinfo_vol  { background-color:  lightskyblue;}
+.pinfo_roche  { background-color:  gainsboro;}
+.pinfo_poison  { background-color:  gainsboro;}
+
+.stool_sort_alpha {
+    position: relative;
+
+}
