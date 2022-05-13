@@ -52,7 +52,7 @@ class EntryController {
                 let entryAllreadyExist = false;
                 allEntries === null || allEntries === void 0 ? void 0 : allEntries.forEach(entryToTest => {
                     if (entryToTest.date.getTime() == entry.date.getTime()
-                        && entryToTest.movie.id == entryToTest.movie.id) {
+                        && entryToTest.movie.id == entry.movie.id) {
                         entryAllreadyExist = true;
                     }
                 });
@@ -81,7 +81,7 @@ class EntryController {
         res.json({ message: `Error 500: internal error` });
     }
     sortEntriesByDate(entries) {
-        return entries.sort((a, b) => a.date.getTime() - b.date.getTime());
+        return entries.sort((a, b) => b.date.getTime() - a.date.getTime());
     }
     isEntryAlreadyExist(entry) {
         return __awaiter(this, void 0, void 0, function* () {

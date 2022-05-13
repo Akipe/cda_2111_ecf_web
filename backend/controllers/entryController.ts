@@ -48,7 +48,7 @@ export class EntryController
             allEntries?.forEach(entryToTest => {
                 if (
                     entryToTest.date.getTime() == entry.date.getTime()
-                    && entryToTest.movie.id == entryToTest.movie.id
+                    && entryToTest.movie.id == entry.movie.id
                 ) {
                     entryAllreadyExist = true
                 }
@@ -83,7 +83,7 @@ export class EntryController
 
     private sortEntriesByDate(entries: Array<Entry>)
     {
-        return entries.sort((a, b) => a.date.getTime() - b.date.getTime())
+        return entries.sort((a, b) => b.date.getTime() - a.date.getTime())
     }
     
     private async isEntryAlreadyExist(entry: Entry): Promise<boolean>

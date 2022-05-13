@@ -34,21 +34,28 @@ const app = createApp({
         },
         getPokemonsFromTypeSearch(listPokemons) {
             if (this.types.water || this.types.fire || this.types.plant) {
+                let typesIncludes = []
+
                 if (this.types.water) {
-                    listPokemons = listPokemons.filter(pokemon => {
-                        return pokemon.types.includes("Eau")
-                    })
+                    typesIncludes.push("Eau")
                 }
                 if (this.types.fire) {
-                    listPokemons = listPokemons.filter(pokemon => {
-                        return pokemon.types.includes("Feu")
-                    })
+                    typesIncludes.push("Feu")
                 }
                 if (this.types.plant) {
-                    listPokemons = listPokemons.filter(pokemon => {
-                        return pokemon.types.includes("Plante")
-                    })
+                    typesIncludes.push("Plante")
                 }
+
+                listPokemons = listPokemons.filter(pokemon => {
+                    let isTypeIncluded = false
+                    typesIncludes.forEach(type => {
+                        if (pokemon.types.includes(type)) {
+                            isTypeIncluded = true
+                        }
+                    })
+
+                    return isTypeIncluded
+                })
             }
 
             return listPokemons
